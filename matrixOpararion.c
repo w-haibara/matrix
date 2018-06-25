@@ -1,14 +1,16 @@
 #include<stdio.h>
 
-void makeMat(char name,int A[3][3]);
+#define DEF_MAT(MAT) mkMat(#MAT,MAT)
+
+void mkMat(char name[], int A[3][3]);
 
 
 int main(void){
     int A[3][3];
     int B[3][3]; 
 
-    makeMat('A',A);
-    makeMat('B',B);
+    DEF_MAT(A);
+    DEF_MAT(B);
 
     for(int i=0;i<3;i++){
         for(int j=0;j<3;j++){
@@ -31,10 +33,11 @@ int main(void){
     return 0;
 }
 
-void makeMat(char name,int mat[3][3]){
+void mkMat(char name[],int mat[3][3]){
+
     for(int i=0;i<3;i++){
         for(int j=0;j<3;j++){
-            printf("%c[%d][%d]=",name,i+1,j+1);
+            printf("%s[%d][%d]=",name ,i+1,j+1);
             scanf("%d",&mat[i][j]);
         }
     printf("\n"); 
